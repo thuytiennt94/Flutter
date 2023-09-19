@@ -11,27 +11,39 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyHomePage extends StatelessWidget {
-//   const MyHomePage({super.key});
-//
+  MyHomePage({Key? key}) : super(key: key);
+
 //   @override
 //   State<MyHomePage> createState() => _MyHomePageState();
 // }
 //
 // class _MyHomePageState extends State<MyHomePage> {
-//   final List<Map<String, String>> listImageLeft = [
-//     {
-//       'name': 'Korea',
-//       'image': 'assets/images/korea.png'
-//     },
-//     {
-//       'name': 'Korea',
-//       'image': 'assets/images/korea.png'
-//     },
-//     {
-//       'name': 'Korea',
-//       'image': 'assets/images/korea.png'
-//     },
-//   ];
+  final List<Map<String, String>> listImageLeft = [
+    {
+      'name': 'Korea',
+      'image': '../assets/photo/korea.jpg'
+    },
+    {
+      'name': 'Hội An',
+      'image': '../assets/photo/hoian.jpg'
+    },
+    {
+      'name': 'Chùa Một cột',
+      'image': '../assets/photo/chuamotcot.webp'
+    },
+    {
+      'name': 'Sài gòn',
+      'image': '../assets/photo/saigon.webp'
+    },
+    {
+      'name': 'Sài gòn',
+      'image': '../assets/photo/saigon.webp'
+    },
+    {
+      'name': 'Sài gòn',
+      'image': '../assets/photo/saigon.webp'
+    },
+  ];
 
   Widget _buildImageHomeScreen(String name, String image) {
     return GestureDetector(
@@ -263,23 +275,20 @@ class MyHomePage extends StatelessWidget {
                 ),
 
                 Expanded(
-                    child: CustomScrollView(
-                      primary: false,
-                      slivers: <Widget>[
-                        SliverPadding(
-                          padding: const EdgeInsets.all(0),
-                          sliver: SliverGrid.count(crossAxisCount: 10,
-                            mainAxisSpacing: 10,
-                            crossAxisSpacing: 2,
-                            // children: listImageLeft.map(
-                            //       (e) => _buildImageHomeScreen(
-                            //       e['name']!,
-                            //       e['image']!),
-                            // ).toList(),
-                          ),
-                        ),
-                      ],
-                    ))
+                  child: GridView.count(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: 1,
+                    // padding:5,
+                    children: listImageLeft.map(
+                          (e) => Padding(
+                        padding: EdgeInsets.all(7.0), // Specify the desired padding
+                        child: _buildImageHomeScreen(e['name']!, e['image']!),
+                      ),
+                    ).toList(),
+                  ),
+                )
               ],
             ),
           ),
