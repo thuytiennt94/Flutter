@@ -35,11 +35,17 @@ class Place {
     );
   }
 }
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key});
 
   @override
-  State<MyHomePage> createState() => _HomePageNewState();
+  _HomePageNewState createState() => _HomePageNewState();
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
 }
 
 class _HomePageNewState extends State<MyHomePage> {
