@@ -1,4 +1,6 @@
 
+import 'dart:convert';
+
 import 'package:examadfd/core/constant/color_palatte.dart';
 import 'package:examadfd/core/constant/dimension_constant.dart';
 import 'package:examadfd/core/extention/text_styles.dart';
@@ -9,41 +11,53 @@ import 'package:examadfd/widgets/app_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:http/http.dart' as http;
 
+class Place {
+  final int id;
+  final String thumbnail;
+  final String name;
+  final int star;
+
+  Place({
+    required this.id,
+    required this.thumbnail,
+    required this.name,
+    required this.star,
+  });
+
+  factory Place.fromJson(Map<String, dynamic> json) {
+    return Place(
+      id: json['id'],
+      thumbnail: json['thumbnail'],
+      name: json['name'],
+      star: json['star'],
+    );
+  }
+}
 class MyHomePage extends StatelessWidget {
-  MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({Key? key});
 
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
-//
-// class _MyHomePageState extends State<MyHomePage> {
-  final List<Map<String, String>> listImageLeft = [
-    {
-      'name': 'Korea',
-      'image': '../assets/photo/korea.jpg'
-    },
-    {
-      'name': 'Hội An',
-      'image': '../assets/photo/hoian.jpg'
-    },
-    {
-      'name': 'Chùa Một cột',
-      'image': '../assets/photo/chuamotcot.webp'
-    },
-    {
-      'name': 'Sài gòn',
-      'image': '../assets/photo/saigon.webp'
-    },
-    {
-      'name': 'Sài gòn',
-      'image': '../assets/photo/saigon.webp'
-    },
-    {
-      'name': 'Sài gòn',
-      'image': '../assets/photo/saigon.webp'
-    },
-  ];
+  @override
+  State<MyHomePage> createState() => _HomePageNewState();
+}
+
+class _HomePageNewState extends State<MyHomePage> {
+  Future<List<Place>> fetchData() async {
+    try {
+      final String url = 'http://10.0.2.2:8888/place';
+      final response = await http.get(Uri.parse(url));
+
+      if (response.statusCode == 200) {
+        List<dynamic> jsonResponse = json.decode(response.body);
+        return jsonResponse.map((data) => Place.fromJson(data)).toList();
+      } else {
+        throw Exception('Unexpected error occurred!');
+      }
+    } catch (error) {
+      throw Exception('Failed to fetch data: $error');
+    }
+  }
 
   Widget _buildImageHomeScreen(String name, String image) {
     return GestureDetector(
@@ -274,21 +288,43 @@ class MyHomePage extends StatelessWidget {
                   height: kMediumPadding,
                 ),
 
-                Expanded(
-                  child: GridView.count(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    childAspectRatio: 1,
-                    // padding:5,
-                    children: listImageLeft.map(
-                          (e) => Padding(
-                        padding: EdgeInsets.all(7.0), // Specify the desired padding
-                        child: _buildImageHomeScreen(e['name']!, e['image']!),
+                FutureBuilder<List<Place>>(
+                  future: fetchData(),
+                  builder: (BuildContext context,
+                      AsyncSnapshot<List<Place>> snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(child: CircularProgressIndicator());
+                    } else if (snapshot.hasError) {
+                      return Center(child: Text('Error: ${snapshot.error}'));
+                    }
+
+                    List<Place> place = snapshot.data!;
+
+                    return Expanded(
+                      child: CustomScrollView(
+                        primary: false,
+                        slivers: <Widget>[
+                          SliverPadding(
+                            padding: const EdgeInsets.all(0),
+                            sliver: SliverGrid.count(
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10,
+                              crossAxisCount: 2,
+                              children: place
+                                  .map(
+                                    (e) => _buildImageHomeScreen(
+                                  e.name,
+                                  e.thumbnail,
+                                ),
+                              )
+                                  .toList(),
+                            ),
+                          )
+                        ],
                       ),
-                    ).toList(),
-                  ),
-                )
+                    );
+                  },
+                ),
               ],
             ),
           ),

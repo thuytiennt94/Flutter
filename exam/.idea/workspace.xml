@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6835e8a1-ff04-44ba-8a57-385bcc4140b8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exam/ExamApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exam/controller/PlaceController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/exam/ExamApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examadfd/lib/pages/home_pages.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examadfd/lib/pages/home_pages.dart" afterDir="false" />
+    <list default="true" id="93d96f4c-9ea9-41c8-b3c8-7f36a36941ce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/place.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exam/config/SpringFoxConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exam/config/WebMvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exam/dtos/TourDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exam/entity/Tours.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exam/repository/ToursRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exam/restapi/TourApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exam/restapi/admin/AdminTourApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exam/service/TourService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examadfd/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../examadfd/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,46 +35,43 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2Vc5SnvqQgu6VAsKjGXZ8LYDrIf" />
+  <component name="ProjectId" id="2VcOjENUAjLufttyvibpCQ9yqf7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Project4/Plant_Shop",
+    "last_opened_file_path": "C:/Users/HP PC/OneDrive/Documents/Flutter/exam",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.file-colors",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="ExamApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="exam" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.exam.ExamApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP PC\OneDrive\Documents\Flutter\exam" />
+      <recent name="C:\Users\HP PC\OneDrive\Documents\Flutter\exam\src\main\java\com\example\exam" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6835e8a1-ff04-44ba-8a57-385bcc4140b8" name="Changes" comment="" />
-      <created>1695122532876</created>
+      <changelist id="93d96f4c-9ea9-41c8-b3c8-7f36a36941ce" name="Changes" comment="" />
+      <created>1695132036360</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1695122532876</updated>
-      <workItem from="1695122534487" duration="5142000" />
+      <updated>1695132036360</updated>
+      <workItem from="1695132037345" duration="598000" />
     </task>
     <servers />
   </component>
